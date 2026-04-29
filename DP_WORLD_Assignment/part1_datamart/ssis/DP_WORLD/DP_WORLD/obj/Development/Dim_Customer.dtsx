@@ -1,0 +1,3104 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/27/2026 1:09:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-6ULU22H"
+  DTS:CreatorName="DESKTOP-6ULU22H\Sondos"
+  DTS:DTSID="{6106DBC4-4D82-4108-B06D-0727270A5A3E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Dim_Customer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="96"
+  DTS:VersionGUID="{FFC3D47B-EAE7-4564-AE6A-D1DB5E67FDED}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{98AEEB81-5B60-48B3-A435-705F60630A08}"
+      DTS:ObjectName="LocalHost.DPWorld_DataMart">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DPWorld_DataMart;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Dim_Customer-{98AEEB81-5B60-48B3-A435-705F60630A08}LocalHost.DPWorld_DataMart;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E3CA77AF-258B-453A-8784-BD5D58EE47C3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EAE3691F-D4E9-4CF6-9538-0798B673C51B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load Dim_Customer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4FC6BF94-D3E7-4A1F-965D-D0F3E11F1357}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load Dim_Customer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load Dim_Customer\Add Metadata - New"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Add Metadata - New"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\Add Metadata - New.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Add Metadata - New.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Output].Columns[is_current]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Output].Columns[is_current]"
+                      name="is_current"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Output].Columns[effective_to_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Output].Columns[effective_to_id]"
+                      name="effective_to_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">99991231</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">99991231</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Output].Columns[change_reason]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="12"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Output].Columns[change_reason]"
+                      name="change_reason"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"New Customer"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"New Customer"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Add Metadata - New.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\Add Metadata - Update"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Add Metadata - Update"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Output].Columns[is_current]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Output].Columns[is_current]"
+                      name="is_current"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Output].Columns[effective_to_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Output].Columns[effective_to_id]"
+                      name="effective_to_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">99991231</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">99991231</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Output].Columns[change_reason]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="17"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Output].Columns[change_reason]"
+                      name="change_reason"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"SCD Type 2 Change"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"SCD Type 2 Change"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[Copy of customer_tier]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of customer_tier"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_tier]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[Copy of credit_limit]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of credit_limit"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of credit_limit]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[Lkp_customer_tier]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Lkp_customer_tier"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_customer_tier]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[Lkp_credit_limit]"
+                      cachedDataType="numeric"
+                      cachedName="Lkp_credit_limit"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_credit_limit]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_name]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[active_flag]"
+                      cachedDataType="i4"
+                      cachedName="active_flag"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[active_flag]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[Lkp_customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Lkp_customer_name"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_customer_name]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[Lkp_country]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Lkp_country"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_country]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[Lkp_active_flag]"
+                      cachedDataType="bool"
+                      cachedName="Lkp_active_flag"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_active_flag]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[customer_tier]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_tier"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_tier]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input].Columns[credit_limit]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="credit_limit"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[credit_limit]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Conditional Split.Outputs[Type2_Change]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Type2_Change"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">(#{Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_tier]} != #{Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_customer_tier]}) || (#{Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of credit_limit]} != #{Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_credit_limit]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">([Copy of customer_tier] != Lkp_customer_tier) || ([Copy of credit_limit] != Lkp_credit_limit)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Conditional Split.Outputs[Type 1 Change]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Type 1 Change"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">(#{Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_name]} != #{Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_customer_name]} || #{Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[country]} != #{Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_country]} || (DT_I4)#{Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[active_flag]} != (DT_I4)#{Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_active_flag]}) &amp;&amp; !(#{Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_tier]} != #{Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_customer_tier]} || (DT_R8)#{Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[credit_limit]} != (DT_R8)#{Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_credit_limit]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">(customer_name != Lkp_customer_name || country != Lkp_country || (DT_I4)active_flag != (DT_I4)Lkp_active_flag) &amp;&amp; !(customer_tier != Lkp_customer_tier || (DT_R8)credit_limit != (DT_R8)Lkp_credit_limit)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Conditional Split.Outputs[No Change]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="No Change"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Data Conversion.Inputs[Data Conversion Input].Columns[customer_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_id"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Data Conversion.Inputs[Data Conversion Input].Columns[customer_tier]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_tier"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_tier]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Data Conversion.Inputs[Data Conversion Input].Columns[credit_limit]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="credit_limit"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[credit_limit]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Data Conversion.Inputs[Data Conversion Input].Columns[change_reason]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="change_reason"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[change_reason]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_id]"
+                      name="Copy of customer_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_tier]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_tier]"
+                      name="Copy of customer_tier"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_tier]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of credit_limit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of credit_limit]"
+                      name="Copy of credit_limit"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[credit_limit]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of change_reason]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of change_reason]"
+                      name="Copy of change_reason"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[change_reason]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Derived Column.Inputs[Derived Column Input].Columns[effective_from]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="effective_from"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[effective_from]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Derived Column.Inputs[Derived Column Input].Columns[effective_to]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="effective_to"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[effective_to]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Output].Columns[effective_from_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Output].Columns[effective_from_id]"
+                      name="effective_from_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)[SUBSTRING]([REPLACE](#{Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[effective_from]},"-",""),1,8)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)SUBSTRING(REPLACE(effective_from,"-",""),1,8)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Output].Columns[effective_to_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Output].Columns[effective_to_id]"
+                      name="effective_to_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)[SUBSTRING]([REPLACE](#{Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[effective_to]},"-",""),1,8)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)SUBSTRING(REPLACE(effective_to,"-",""),1,8)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\Get Customer Master Data"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Get Customer Master Data"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    customer_id, 
+    customer_name, 
+    customer_code, 
+    country,
+    CAST(active_flag AS INT) AS active_flag, 
+    CAST(REPLACE(CONVERT(VARCHAR(10), onboarded_date, 120), '-', '') AS INT) AS onboarded_date_id
+FROM [stg].[Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT 
+    customer_id, 
+    customer_name, 
+    customer_code, 
+    country,
+    CAST(active_flag AS INT) AS active_flag, 
+    CAST(REPLACE(CONVERT(VARCHAR(10), onboarded_date, 120), '-', '') AS INT) AS onboarded_date_id
+FROM [stg].[Customers]) [refTable]
+where [refTable].[customer_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="customer_id" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_code" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="country" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="active_flag" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="onboarded_date_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Inputs[Lookup Input].Columns[customer_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_id"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">customer_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_name]"
+                      name="customer_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">customer_name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_code]"
+                      name="customer_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">customer_code</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">country</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[active_flag]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[active_flag]"
+                      name="active_flag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">active_flag</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[onboarded_date_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[onboarded_date_id]"
+                      name="onboarded_date_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">onboarded_date_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\Insert New Customers"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert New Customers"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[mart].[Dim_Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Customer\Insert New Customers.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[Copy of customer_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of customer_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[is_current]"
+                      cachedDataType="i4"
+                      cachedName="is_current"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Output].Columns[is_current]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[change_reason]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="change_reason"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[change_reason]"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Output].Columns[change_reason]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[Copy of credit_limit]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of credit_limit"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[credit_limit]"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of credit_limit]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[Copy of customer_tier]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of customer_tier"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_tier]"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_tier]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[effective_from_id]"
+                      cachedDataType="i4"
+                      cachedName="effective_from_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[effective_from_id]"
+                      lineageId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Output].Columns[effective_from_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[effective_to_id]"
+                      cachedDataType="i4"
+                      cachedName="effective_to_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[effective_to_id]"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Output].Columns[effective_to_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[onboarded_date_id]"
+                      cachedDataType="i4"
+                      cachedName="onboarded_date_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[onboarded_date_SK]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[onboarded_date_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[active_flag]"
+                      cachedDataType="i4"
+                      cachedName="active_flag"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[active_flag]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[active_flag]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_name]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_name]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].Columns[customer_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_code"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_code]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_code]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_SK]"
+                      dataType="i4"
+                      name="customer_SK" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_code]"
+                      dataType="wstr"
+                      length="50"
+                      name="customer_code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="100"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_tier]"
+                      dataType="wstr"
+                      length="50"
+                      name="customer_tier" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[credit_limit]"
+                      dataType="numeric"
+                      name="credit_limit"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[active_flag]"
+                      dataType="bool"
+                      name="active_flag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[onboarded_date_SK]"
+                      dataType="i4"
+                      name="onboarded_date_SK" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[effective_from_id]"
+                      dataType="i4"
+                      name="effective_from_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[effective_to_id]"
+                      dataType="i4"
+                      name="effective_to_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                      dataType="bool"
+                      name="is_current" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input].ExternalColumns[change_reason]"
+                      dataType="wstr"
+                      length="255"
+                      name="change_reason" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Insert New Customers.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Insert New Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Insert New Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Insert New Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    customer_id, 
+    LTRIM(RTRIM(customer_code)) AS customer_code, 
+    LTRIM(RTRIM(customer_name)) AS customer_name, 
+    LTRIM(RTRIM(country)) AS country, 
+    customer_tier, 
+    credit_limit, 
+    active_flag, 
+    onboarded_date_SK
+FROM mart.Dim_Customer 
+WHERE is_current = 1</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT 
+    customer_id, 
+    LTRIM(RTRIM(customer_code)) AS customer_code, 
+    LTRIM(RTRIM(customer_name)) AS customer_name, 
+    LTRIM(RTRIM(country)) AS country, 
+    customer_tier, 
+    credit_limit, 
+    active_flag, 
+    onboarded_date_SK
+FROM mart.Dim_Customer 
+WHERE is_current = 1) [refTable]
+where [refTable].[customer_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="customer_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_code" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="country" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_tier" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="credit_limit" dataType="DT_NUMERIC" length="0" precision="18" scale="2" codePage="0"/&gt;&lt;referenceColumn name="active_flag" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="onboarded_date_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Customer\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Lookup.Inputs[Lookup Input].Columns[Copy of customer_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of customer_id"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">customer_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_customer_tier]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_customer_tier]"
+                      name="Lkp_customer_tier"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">customer_tier</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_credit_limit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_credit_limit]"
+                      name="Lkp_credit_limit"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">credit_limit</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_customer_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_customer_name]"
+                      name="Lkp_customer_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">customer_name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_country]"
+                      name="Lkp_country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">country</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_customer_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_customer_code]"
+                      name="Lkp_customer_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">customer_code</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_active_flag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_active_flag]"
+                      name="Lkp_active_flag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">active_flag</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_onboarded_date_SK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output].Columns[Lkp_onboarded_date_SK]"
+                      name="Lkp_onboarded_date_SK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">onboarded_date_SK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE mart.Dim_Customer 
+SET is_current = 0, effective_to_id = ? 
+WHERE customer_id = ? AND is_current = 1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Customer\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Command.Inputs[OLE DB Command Input].Columns[Copy of customer_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of customer_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Command.Inputs[OLE DB Command Input].Columns[effective_from_id]"
+                      cachedDataType="i4"
+                      cachedName="effective_from_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Output].Columns[effective_from_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[CustomerHistory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    customer_id,
+    customer_tier,
+    credit_limit,
+    effective_from, 
+    effective_to,   
+    change_reason
+FROM stg.CustomerHistory
+ORDER BY customer_id, effective_from ASC</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Customer\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_tier]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_tier]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_tier]"
+                      name="customer_tier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[credit_limit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[credit_limit]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[credit_limit]"
+                      name="credit_limit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[effective_from]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[effective_from]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[effective_from]"
+                      name="effective_from"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[effective_to]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[effective_to]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[effective_to]"
+                      name="effective_to"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[change_reason]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[change_reason]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[change_reason]"
+                      name="change_reason"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_tier]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_tier" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[credit_limit]"
+                      dataType="wstr"
+                      length="255"
+                      name="credit_limit" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[effective_from]"
+                      dataType="wstr"
+                      length="255"
+                      name="effective_from" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[effective_to]"
+                      dataType="wstr"
+                      length="255"
+                      name="effective_to" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[change_reason]"
+                      dataType="wstr"
+                      length="255"
+                      name="change_reason" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_tier]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_tier]"
+                      name="customer_tier" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[credit_limit]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[credit_limit]"
+                      name="credit_limit" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[effective_from]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[effective_from]"
+                      name="effective_from" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[effective_to]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[effective_to]"
+                      name="effective_to" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[change_reason]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[change_reason]"
+                      name="change_reason" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::RowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\Update Customers"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Update Customers"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[mart].[Dim_Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Customer\Update Customers.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[is_current]"
+                      cachedDataType="i4"
+                      cachedName="is_current"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Output].Columns[is_current]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[Copy of customer_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of customer_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[Copy of customer_tier]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of customer_tier"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_tier]"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_tier]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[Copy of credit_limit]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of credit_limit"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[credit_limit]"
+                      lineageId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of credit_limit]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[change_reason]"
+                      cachedDataType="wstr"
+                      cachedLength="17"
+                      cachedName="change_reason"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[change_reason]"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Output].Columns[change_reason]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[effective_from_id]"
+                      cachedDataType="i4"
+                      cachedName="effective_from_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[effective_from_id]"
+                      lineageId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Output].Columns[effective_from_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[effective_to_id]"
+                      cachedDataType="i4"
+                      cachedName="effective_to_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[effective_to_id]"
+                      lineageId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Output].Columns[effective_to_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[customer_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_code"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_code]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_code]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_name]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_name]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[onboarded_date_id]"
+                      cachedDataType="i4"
+                      cachedName="onboarded_date_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[onboarded_date_SK]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[onboarded_date_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].Columns[active_flag]"
+                      cachedDataType="i4"
+                      cachedName="active_flag"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[active_flag]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[active_flag]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_SK]"
+                      dataType="i4"
+                      name="customer_SK" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_code]"
+                      dataType="wstr"
+                      length="50"
+                      name="customer_code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="100"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[customer_tier]"
+                      dataType="wstr"
+                      length="50"
+                      name="customer_tier" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[credit_limit]"
+                      dataType="numeric"
+                      name="credit_limit"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[active_flag]"
+                      dataType="bool"
+                      name="active_flag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[onboarded_date_SK]"
+                      dataType="i4"
+                      name="onboarded_date_SK" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[effective_from_id]"
+                      dataType="i4"
+                      name="effective_from_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[effective_to_id]"
+                      dataType="i4"
+                      name="effective_to_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                      dataType="bool"
+                      name="is_current" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input].ExternalColumns[change_reason]"
+                      dataType="wstr"
+                      length="255"
+                      name="change_reason" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Update Customers.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Update Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Update Customers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Customer\Update Customers_1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update Customers_1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE mart.Dim_Customer
+SET customer_name = ?, 
+    customer_code = ?, 
+    country = ?, 
+    active_flag = ?
+WHERE customer_id = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Customer\Update Customers_1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].Columns[customer_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_name"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_name]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].Columns[customer_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_code"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[customer_code]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].Columns[customer_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].Columns[active_flag]"
+                      cachedDataType="i4"
+                      cachedName="active_flag"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output].Columns[active_flag]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="100"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="bool"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Update Customers_1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Customer\Update Customers_1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Update Customers_1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Customer\Update Customers_1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Customer\Update Customers_1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[Data Conversion Output]"
+              endId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT - Load Dim_Customer\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[Derived Column Output]"
+              endId="Package\DFT - Load Dim_Customer\Insert New Customers.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load Dim_Customer\Add Metadata - New.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[Derived Column Output1]"
+              endId="Package\DFT - Load Dim_Customer\Update Customers.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[Derived Column Output2]"
+              endId="Package\DFT - Load Dim_Customer\Lookup.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load Dim_Customer\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[Lookup Match Output]"
+              endId="Package\DFT - Load Dim_Customer\Conditional Split.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[Lookup Match Output1]"
+              endId="Package\DFT - Load Dim_Customer\Derived Column.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT - Load Dim_Customer\Get Customer Master Data.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[Lookup No Match Output]"
+              endId="Package\DFT - Load Dim_Customer\Add Metadata - New.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT - Load Dim_Customer\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[No Change]"
+              endId="Package\DFT - Load Dim_Customer\Row Count.Inputs[Row Count Input 1]"
+              name="No Change"
+              startId="Package\DFT - Load Dim_Customer\Conditional Split.Outputs[No Change]" />
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[OLE DB Command Output]"
+              endId="Package\DFT - Load Dim_Customer\Add Metadata - Update.Inputs[Derived Column Input]"
+              name="OLE DB Command Output"
+              startId="Package\DFT - Load Dim_Customer\OLE DB Command.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Load Dim_Customer\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Load Dim_Customer\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[Type 1 Change]"
+              endId="Package\DFT - Load Dim_Customer\Update Customers_1.Inputs[OLE DB Command Input]"
+              name="Type 1 Change"
+              startId="Package\DFT - Load Dim_Customer\Conditional Split.Outputs[Type 1 Change]" />
+            <path
+              refId="Package\DFT - Load Dim_Customer.Paths[Type2_Change]"
+              endId="Package\DFT - Load Dim_Customer\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Type2_Change"
+              startId="Package\DFT - Load Dim_Customer\Conditional Split.Outputs[Type2_Change]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\End Log Failure"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9D180D64-F691-496A-8CE9-3C0EA71F8F49}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="End Log Failure"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{98AEEB81-5B60-48B3-A435-705F60630A08}"
+          SQLTask:SqlStatementSource="UPDATE stg.BatchLog &#xA;SET EndTime = GETDATE(), Status = 'FAILED'&#xA;WHERE LogID = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\End Log Success"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F6067386-EFC5-4CB4-ADA1-CB32B7FCD36E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="End Log Success"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{98AEEB81-5B60-48B3-A435-705F60630A08}"
+          SQLTask:SqlStatementSource="UPDATE stg.BatchLog &#xA;SET EndTime = GETDATE(), Status = 'SUCCESS'&#xA;WHERE LogID = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::LogID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task — Start Log"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DE7E21E6-8449-4BAF-A6CA-D7FD1815BF18}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task — Start Log"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{98AEEB81-5B60-48B3-A435-705F60630A08}"
+          SQLTask:SqlStatementSource="INSERT INTO stg.BatchLog &#xA;    (PackageName, TableName, StartTime, Status)&#xA;VALUES &#xA;    ('Dim_Customer', 'mart.Dim_Customer', GETDATE(), 'RUNNING')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{52693BE5-00D4-44EB-A79D-00D90DA6C3DD}"
+      DTS:From="Package\Execute SQL Task — Start Log"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT - Load Dim_Customer" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AFF44896-06E5-473B-B311-EAEC49C230AA}"
+      DTS:From="Package\DFT - Load Dim_Customer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\End Log Success" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{6B7A9545-34C1-4E50-80ED-3D950290942E}"
+      DTS:From="Package\DFT - Load Dim_Customer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\End Log Failure"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\DFT - Load Dim_Customer"
+          TopLeft="207.14285758381,191.176470420661" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\End Log Failure"
+          TopLeft="101.428571644487,337.235293822047" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\End Log Success"
+          TopLeft="350.714286460865,330.352940886904" />
+        <NodeLayout
+          Size="221.6,41.6"
+          Id="Package\Execute SQL Task — Start Log"
+          TopLeft="199.285714709941,61.9411764162944" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="309.414286146875,103.541176416294">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87.6352940043664"
+              Start="0,0"
+              End="0,80.1352940043664">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.1352940043664" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="341.276190917143,232.776470420661">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87.8380955437217,97.5764704662432"
+              Start="0,0"
+              End="87.8380955437217,90.0764704662432">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.4879778918078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.4879778918078"
+                    Point2="0,39.4879778918078"
+                    Point3="4,39.4879778918078" />
+                  <mssgle:LineSegment
+                    End="83.8380955437217,39.4879778918078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.8380955437217,39.4879778918078"
+                    Point2="87.8380955437217,39.4879778918078"
+                    Point3="87.8380955437217,43.4879778918078" />
+                  <mssgle:LineSegment
+                    End="87.8380955437217,90.0764704662432" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="276.209524250477,232.776470420661">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-99.1809526059897,104.458823401386"
+              Start="0,0"
+              End="-99.1809526059897,96.9588234013862">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.2731800952485" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.2731800952485"
+                    Point2="0,42.2731800952485"
+                    Point3="-4,42.2731800952485" />
+                  <mssgle:LineSegment
+                    End="-95.1809526059897,42.2731800952485" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-95.1809526059897,42.2731800952485"
+                    Point2="-99.1809526059897,42.2731800952485"
+                    Point3="-99.1809526059897,46.2731800952485" />
+                  <mssgle:LineSegment
+                    End="-99.1809526059897,96.9588234013862" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-64.8318239592448,47.2731800952485,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Load Dim_Customer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\DFT - Load Dim_Customer\Row Count"
+          TopLeft="460.91269939386,432.735293827745" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\DFT - Load Dim_Customer\Conditional Split"
+          TopLeft="244.742064013054,359.640522657971" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\DFT - Load Dim_Customer\Insert New Customers"
+          TopLeft="670.71428714206,494.764705630993" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\DFT - Load Dim_Customer\OLE DB Source"
+          TopLeft="450.555556514669,37.4705882024497" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\DFT - Load Dim_Customer\Lookup"
+          TopLeft="473.412699420469,263.823529180513" />
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\DFT - Load Dim_Customer\Get Customer Master Data"
+          TopLeft="177.38095275855,123.725490102237" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\DFT - Load Dim_Customer\Add Metadata - Update"
+          TopLeft="251.289683074613,524.683006266154" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DFT - Load Dim_Customer\OLE DB Command"
+          TopLeft="248.511905290921,445.669934347269" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\DFT - Load Dim_Customer\Derived Column"
+          TopLeft="618.214287030301,201.999999840471" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\DFT - Load Dim_Customer\Update Customers_1"
+          TopLeft="1.42857143161254,431.882352650269" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\DFT - Load Dim_Customer\Data Conversion"
+          TopLeft="614.722223530803,120.601960691925" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\DFT - Load Dim_Customer\Add Metadata - New"
+          TopLeft="611.666667968743,358.204248152543" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DFT - Load Dim_Customer\Update Customers"
+          TopLeft="285.714286322496,608.294117257617" />
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[Lookup Match Output1]"
+          TopLeft="278.980952758549,165.325490102237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="415.633334271753,36.6745097382333"
+              Start="0,0"
+              End="415.633334271753,29.1745097382333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.3372548691166" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.3372548691166"
+                    Point2="0,18.3372548691166"
+                    Point3="4,18.3372548691166" />
+                  <mssgle:LineSegment
+                    End="411.633334271753,18.3372548691166" />
+                  <mssgle:CubicBezierSegment
+                    Point1="411.633334271753,18.3372548691166"
+                    Point2="415.633334271753,18.3372548691166"
+                    Point3="415.633334271753,22.3372548691166" />
+                  <mssgle:LineSegment
+                    End="415.633334271753,29.1745097382333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="159.625280417126,23.3372548691166,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[Lookup Match Output]"
+          TopLeft="512.346032753802,305.423529180513">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-190.403968740748,54.2169934774581"
+              Start="0,0"
+              End="-190.403968740748,46.7169934774581">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1417651684164" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1417651684164"
+                    Point2="0,22.1417651684164"
+                    Point3="-4,22.1417651684164" />
+                  <mssgle:LineSegment
+                    End="-186.403968740748,22.1417651684164" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-186.403968740748,22.1417651684164"
+                    Point2="-190.403968740748,22.1417651684164"
+                    Point3="-190.403968740748,26.1417651684164" />
+                  <mssgle:LineSegment
+                    End="-190.403968740748,46.7169934774581" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-152.262023432874,27.1417651684164,114.120078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[Derived Column Output2]"
+          TopLeft="618.214287030301,222.799999840471">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32.0015876098327,61.8235293400425"
+              Start="0,0"
+              End="-24.5015876098327,61.8235293400425">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-12.0007938049163,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.0007938049163,0"
+                    Point2="-16.0007938049163,0"
+                    Point3="-16.0007938049163,4" />
+                  <mssgle:LineSegment
+                    End="-16.0007938049163,57.8235293400425" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.0007938049163,57.8235293400425"
+                    Point2="-16.0007938049163,61.8235293400425"
+                    Point3="-20.0007938049163,61.8235293400425" />
+                  <mssgle:LineSegment
+                    End="-24.5015876098327,61.8235293400425" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[Derived Column Output1]"
+          TopLeft="345.289683074613,566.283006266154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.8246032478833,42.0111109914628"
+              Start="0,0"
+              End="22.8246032478833,34.5111109914628">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.0055554957314" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.0055554957314"
+                    Point2="0,21.0055554957314"
+                    Point3="4,21.0055554957314" />
+                  <mssgle:LineSegment
+                    End="18.8246032478833,21.0055554957314" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.8246032478833,21.0055554957314"
+                    Point2="22.8246032478833,21.0055554957314"
+                    Point3="22.8246032478833,25.0055554957314" />
+                  <mssgle:LineSegment
+                    End="22.8246032478833,34.5111109914628" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[Derived Column Output]"
+          TopLeft="698.866667968743,399.804248152543">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.4476191733168,94.9604574784495"
+              Start="0,0"
+              End="63.4476191733168,87.4604574784495">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.4802287392248" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.4802287392248"
+                    Point2="0,47.4802287392248"
+                    Point3="4,47.4802287392248" />
+                  <mssgle:LineSegment
+                    End="59.4476191733168,47.4802287392248" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.4476191733168,47.4802287392248"
+                    Point2="63.4476191733168,47.4802287392248"
+                    Point3="63.4476191733168,51.4802287392248" />
+                  <mssgle:LineSegment
+                    End="63.4476191733168,87.4604574784495" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[Data Conversion Output]"
+          TopLeft="614.722223530803,142.963725397081">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-234.141270772255,0"
+              Start="0,0"
+              End="-226.641270772255,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-226.641270772255,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[Type2_Change]"
+          TopLeft="321.942064013054,401.240522657971">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.96984127786675,44.4294116892979"
+              Start="0,0"
+              End="8.96984127786675,36.9294116892979">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.2147058446489" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.2147058446489"
+                    Point2="0,22.2147058446489"
+                    Point3="4,22.2147058446489" />
+                  <mssgle:LineSegment
+                    End="4.96984127786675,22.2147058446489" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.96984127786675,22.2147058446489"
+                    Point2="8.96984127786675,22.2147058446489"
+                    Point3="8.96984127786675,26.2147058446489" />
+                  <mssgle:LineSegment
+                    End="8.96984127786675,36.9294116892979" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.2575207673166,27.2147058446489,67.4848828125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[Type 1 Change]"
+          TopLeft="285.342064013054,401.240522657971">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-195.513492581442,30.6418299922979"
+              Start="0,0"
+              End="-195.513492581442,23.1418299922979">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.56076653384799" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,6.56076653384799"
+                    Point2="0,10.560766533848"
+                    Point3="-4,10.560766533848" />
+                  <mssgle:LineSegment
+                    End="-191.513492581442,10.560766533848" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-191.513492581442,10.560766533848"
+                    Point2="-195.513492581442,10.560766533848"
+                    Point3="-195.513492581442,14.560766533848" />
+                  <mssgle:LineSegment
+                    End="-195.513492581442,23.1418299922979" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-131.899187696971,15.560766533848,68.2848828125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[OLE DB Source Output]"
+          TopLeft="525.355556514669,79.0705882024497">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="166.966667016135,41.531372489475"
+              Start="0,0"
+              End="166.966667016135,34.031372489475">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.7656862447375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.7656862447375"
+                    Point2="0,20.7656862447375"
+                    Point3="4,20.7656862447375" />
+                  <mssgle:LineSegment
+                    End="162.966667016135,20.7656862447375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="162.966667016135,20.7656862447375"
+                    Point2="166.966667016135,20.7656862447375"
+                    Point3="166.966667016135,24.7656862447375" />
+                  <mssgle:LineSegment
+                    End="166.966667016135,34.031372489475" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[OLE DB Command Output]"
+          TopLeft="330.911905290921,487.269934347269">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.3777777836919,37.4130719188853"
+              Start="0,0"
+              End="14.3777777836919,29.9130719188853">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.7065359594426" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.7065359594426"
+                    Point2="0,18.7065359594426"
+                    Point3="4,18.7065359594426" />
+                  <mssgle:LineSegment
+                    End="10.3777777836919,18.7065359594426" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.3777777836919,18.7065359594426"
+                    Point2="14.3777777836919,18.7065359594426"
+                    Point3="14.3777777836919,22.7065359594426" />
+                  <mssgle:LineSegment
+                    End="14.3777777836919,29.9130719188853" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[No Change]"
+          TopLeft="358.542064013054,401.240522657971">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="167.170635380806,31.4947711697739"
+              Start="0,0"
+              End="167.170635380806,23.9947711697739">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.85473437600015" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,6.85473437600015"
+                    Point2="0,10.8547343760002"
+                    Point3="4,10.8547343760002" />
+                  <mssgle:LineSegment
+                    End="163.170635380806,10.8547343760002" />
+                  <mssgle:CubicBezierSegment
+                    Point1="163.170635380806,10.8547343760002"
+                    Point2="167.170635380806,10.8547343760002"
+                    Point3="167.170635380806,14.8547343760002" />
+                  <mssgle:LineSegment
+                    End="167.170635380806,23.9947711697739" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="58.8639700341529,15.8547343760002,49.4426953125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Customer.Paths[Lookup No Match Output]"
+          TopLeft="547.279366087136,305.423529180513">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="151.587301881608,52.7807189720304"
+              Start="0,0"
+              End="151.587301881608,45.2807189720304">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.555202713053" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.555202713053"
+                    Point2="0,21.555202713053"
+                    Point3="4,21.555202713053" />
+                  <mssgle:LineSegment
+                    End="147.587301881608,21.555202713053" />
+                  <mssgle:CubicBezierSegment
+                    Point1="147.587301881608,21.555202713053"
+                    Point2="151.587301881608,21.555202713053"
+                    Point3="151.587301881608,25.555202713053" />
+                  <mssgle:LineSegment
+                    End="151.587301881608,45.2807189720304" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="19.9872642220538,26.555202713053,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Dim_Customer\Insert New Customers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Dim_Customer\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Dim_Customer\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Dim_Customer\Get Customer Master Data">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Dim_Customer\Update Customers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
