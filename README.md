@@ -120,7 +120,7 @@ Run packages in this order:
 
 ---
 
-## Data Quality Checks (SQLQuery2.sql)
+## Data Quality Checks (Checks.sql)
 
 All checks run against staging after Load_Staging.dtsx completes:
 
