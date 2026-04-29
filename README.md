@@ -168,7 +168,7 @@ The following items were not completed due to the submission deadline:
 
 | Item | Status |
 |---|---|
-| Fact_Vessel_Calls.dtsx | Not started — DDL complete |
+| Fact_Vessel_Calls.dtsx | Completed — DDL complete |
 | Fact_Container_Movements.dtsx | Not started — DDL complete |
 | Fact_Gate_Transactions.dtsx | Not started — DDL complete |
 | Master control package | Not started |
