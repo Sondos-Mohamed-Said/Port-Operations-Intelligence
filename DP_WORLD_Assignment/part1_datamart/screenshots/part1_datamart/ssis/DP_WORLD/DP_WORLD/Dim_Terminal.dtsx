@@ -1,0 +1,1852 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/26/2026 6:03:34 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-6ULU22H"
+  DTS:CreatorName="DESKTOP-6ULU22H\Sondos"
+  DTS:DTSID="{4FDE415D-817C-4008-96EC-5EA2041A6710}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Dim_Terminal"
+  DTS:PackageType="5"
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{64DD78D4-46C2-4E71-B007-452E16A9EF91}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0D23CEC8-083D-4E77-83C0-5AF17BDE89E5}"
+      DTS:ObjectName="LocalHost.DPWorld_DataMart">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DPWorld_DataMart;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Dim_Terminal-{0D23CEC8-083D-4E77-83C0-5AF17BDE89E5}LocalHost.DPWorld_DataMart;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D25751EE-9DF3-4C5E-91A7-4CD8C2ED6CF9}"
+      DTS:ObjectName="LocalHost.DPWorld_DataMart 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DPWorld_DataMart;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Dim_Terminal-{D25751EE-9DF3-4C5E-91A7-4CD8C2ED6CF9}LocalHost.DPWorld_DataMart 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1D3917B1-7FE6-4186-8119-AE70B8D780A1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsError">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{92F54D30-28CA-45D7-8F1F-BC19EE55B21B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsRead">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B9919A42-7879-464F-8CEE-AB149DD23A4D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsWritten">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load Dim_Terminal"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{e8ce0bcc-a9d0-4c98-b7d8-1cb34d39e402}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load Dim_Terminal"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load Dim_Terminal\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Terminal\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[terminal_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="terminal_code"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_code]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[terminal_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="terminal_name"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_name]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[zone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zone"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[zone]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[terminal_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="terminal_type"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_type]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[terminal_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="terminal_id"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="20"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_code]"
+                      name="Copy of terminal_code"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_name]"
+                      name="Copy of terminal_name"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of zone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="100"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of zone]"
+                      name="Copy of zone"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[zone]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="100"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_type]"
+                      name="Copy of terminal_type"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_id]"
+                      name="Copy of terminal_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Terminal\Error_Log"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Error_Log"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[mart].[ErrorLog]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Terminal\Error_Log.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input].ExternalColumns[ErrorID]"
+                      dataType="i4"
+                      name="ErrorID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input].ExternalColumns[PackageName]"
+                      dataType="wstr"
+                      length="255"
+                      name="PackageName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input].ExternalColumns[TableName]"
+                      dataType="wstr"
+                      length="255"
+                      name="TableName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="wstr"
+                      length="50"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumnID]"
+                      dataType="i4"
+                      name="ErrorColumnID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input].ExternalColumns[FlatRowData]"
+                      dataType="nText"
+                      name="FlatRowData" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDescription]"
+                      dataType="nText"
+                      name="ErrorDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input].ExternalColumns[ErrorDate]"
+                      dataType="dbTimeStamp"
+                      name="ErrorDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\Error_Log.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Error_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Terminal\Error_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Error_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Terminal\Error_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Terminal\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[mart].[Dim_Terminal]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Terminal\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].Columns[Copy of terminal_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of terminal_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[terminal_id]"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].Columns[Copy of terminal_code]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Copy of terminal_code"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[terminal_code]"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_code]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].Columns[Copy of terminal_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Copy of terminal_name"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[terminal_name]"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_name]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].Columns[Copy of zone]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of zone"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[zone]"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of zone]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].Columns[Copy of terminal_type]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of terminal_type"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[terminal_type]"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_type]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[terminal_SK]"
+                      dataType="i4"
+                      name="terminal_SK" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[terminal_id]"
+                      dataType="i4"
+                      name="terminal_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[terminal_code]"
+                      dataType="wstr"
+                      length="20"
+                      name="terminal_code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[terminal_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="terminal_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[zone]"
+                      dataType="wstr"
+                      length="50"
+                      name="zone" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[terminal_type]"
+                      dataType="wstr"
+                      length="50"
+                      name="terminal_type" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Terminal\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Terminal\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Terminal\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [mart].[Dim_Terminal] SET [terminal_code] = ?,[terminal_name] = ?,[terminal_type] = ?,[zone] = ? WHERE [terminal_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].Columns[terminal_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="terminal_code"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_code]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].Columns[Copy of terminal_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of terminal_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_id]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].Columns[terminal_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="terminal_name"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_name]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].Columns[terminal_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="terminal_type"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_type]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].Columns[zone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zone"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[zone]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="20"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Terminal\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[Terminals]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    terminal_id,
+    terminal_code,
+    terminal_name,
+    zone,
+    terminal_type
+ FROM stg.Terminals</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[terminal_id]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_id]"
+                      name="terminal_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[terminal_code]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_code]"
+                      name="terminal_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[terminal_name]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_name]"
+                      name="terminal_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[zone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[zone]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[zone]"
+                      name="zone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[terminal_type]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_type]"
+                      name="terminal_type"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[terminal_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="terminal_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[terminal_code]"
+                      dataType="wstr"
+                      length="255"
+                      name="terminal_code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[terminal_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="terminal_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[zone]"
+                      dataType="wstr"
+                      length="255"
+                      name="zone" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[terminal_type]"
+                      dataType="wstr"
+                      length="255"
+                      name="terminal_type" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[terminal_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[terminal_id]"
+                      name="terminal_id" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[terminal_code]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[terminal_code]"
+                      name="terminal_code" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[terminal_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[terminal_name]"
+                      name="terminal_name" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[zone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[zone]"
+                      name="zone" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[terminal_type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[terminal_type]"
+                      name="terminal_type" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Terminal\RowsRead"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="RowsRead">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::RowsRead</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Terminal\RowsRead.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\RowsRead.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\RowsRead.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [terminal_code], [terminal_id], [terminal_name], [terminal_type], [zone] FROM [mart].[Dim_Terminal]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[terminal_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="terminal_code"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[terminal_code]"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Copy of terminal_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of terminal_id"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[terminal_id]"
+                      lineageId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[terminal_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="terminal_name"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[terminal_name]"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[terminal_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="terminal_type"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[terminal_type]"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_type]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[zone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="zone"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[zone]"
+                      lineageId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output].Columns[zone]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[terminal_code]"
+                      dataType="wstr"
+                      length="20"
+                      name="terminal_code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[terminal_id]"
+                      dataType="i4"
+                      name="terminal_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[terminal_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="terminal_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[terminal_type]"
+                      dataType="wstr"
+                      length="50"
+                      name="terminal_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[zone]"
+                      dataType="wstr"
+                      length="50"
+                      name="zone" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load Dim_Terminal.Paths[Changing Attribute Updates Output]"
+              endId="Package\DFT - Load Dim_Terminal\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Terminal.Paths[Data Conversion Error Output]"
+              endId="Package\DFT - Load Dim_Terminal\Error_Log.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Error Output"
+              startId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Error Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Terminal.Paths[Data Conversion Output]"
+              endId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT - Load Dim_Terminal\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Terminal.Paths[New Output]"
+              endId="Package\DFT - Load Dim_Terminal\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Terminal.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Load Dim_Terminal\RowsRead.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Load Dim_Terminal\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Terminal.Paths[Row Count Output 1]"
+              endId="Package\DFT - Load Dim_Terminal\Data Conversion.Inputs[Data Conversion Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT - Load Dim_Terminal\RowsRead.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\End Log Failure"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{21116a01-6529-4ff2-9a2a-0b34a005b04a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="End Log Failure"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0D23CEC8-083D-4E77-83C0-5AF17BDE89E5}"
+          SQLTask:SqlStatementSource="UPDATE mart.BatchLog&#xA;SET EndTime = GETDATE(),&#xA;    Status = 'Failure'&#xA;WHERE LogID = (&#xA;    SELECT MAX(LogID) &#xA;    FROM mart.BatchLog &#xA;    WHERE PackageName = 'Dim_Terminal.dtsx' &#xA;    AND Status = 'Running'&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="NewParameterName"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task (End Log Success)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6da8153b-9774-4b33-8307-a18dcf54ec9f}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task (End Log Success)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0D23CEC8-083D-4E77-83C0-5AF17BDE89E5}"
+          SQLTask:SqlStatementSource="UPDATE mart.BatchLog&#xA;SET EndTime = GETDATE(),&#xA;    Status = 'Success',&#xA;    RowsRead = ?,    &#xA;    RowsWritten = ?, &#xA;    RowsError = ?    &#xA;WHERE LogID = (SELECT MAX(LogID) FROM mart.BatchLog WHERE PackageName = 'Dim_Shifts.dtsx');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::RowsRead"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowsWritten"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RowsError"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task (Start Log)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4ec16647-550f-4e34-b8d8-97d4549e9bf4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task (Start Log)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0D23CEC8-083D-4E77-83C0-5AF17BDE89E5}"
+          SQLTask:SqlStatementSource="INSERT INTO mart.BatchLog (PackageName, TableName, StartTime, Status) &#xA;VALUES ('Dim_Terminal.dtsx', 'mart.Dim_Terminal', GETDATE(), 'Running');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate and Insert Unknown"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{39234739-AAB7-477D-90C2-5165D2989569}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate and Insert Unknown"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0D23CEC8-083D-4E77-83C0-5AF17BDE89E5}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE mart.dim_terminal;&#xA;&#xA;SET IDENTITY_INSERT mart.dim_terminal ON;&#xA;INSERT INTO mart.dim_terminal (terminal_SK, terminal_code, terminal_name, zone, terminal_type) &#xA;VALUES (-1, '0', 'Unknown', 'Unknown', 'Unknown');&#xA;SET IDENTITY_INSERT mart.dim_terminal OFF;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3a547b56-11fe-4f87-bd44-3bbc7c9ca990}"
+      DTS:From="Package\DFT - Load Dim_Terminal"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute SQL Task (End Log Success)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{82A5AAFD-564C-44B4-BF4E-C96E476D0159}"
+      DTS:From="Package\Execute SQL Task (Start Log)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SQL - Truncate and Insert Unknown" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{377F7FAC-6108-4FE2-8900-7E33D1BF7C19}"
+      DTS:From="Package\SQL - Truncate and Insert Unknown"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load Dim_Terminal" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{ad3b5daa-ceaf-4f13-84e0-524baeca174c}"
+      DTS:From="Package\DFT - Load Dim_Terminal"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\End Log Failure"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="199.2,41.6"
+          Id="Package\DFT - Load Dim_Terminal"
+          TopLeft="210.317460637447,228.999999851865" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\End Log Failure"
+          TopLeft="417.301588062188,375.313725213811" />
+        <NodeLayout
+          Size="252.8,41.6"
+          Id="Package\Execute SQL Task (End Log Success)"
+          TopLeft="60,370.04575136222" />
+        <NodeLayout
+          Size="216.8,41.6"
+          Id="Package\Execute SQL Task (Start Log)"
+          TopLeft="187.460317731647,60" />
+        <NodeLayout
+          Size="248.8,41.6"
+          Id="Package\SQL - Truncate and Insert Unknown"
+          TopLeft="229.285714773803,152.941176336529" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="278.05079397078,270.599999851865">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-91.6507939707803,99.445751510355"
+              Start="0,0"
+              End="-91.6507939707803,91.945751510355">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.2537384599684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.2537384599684"
+                    Point2="0,40.2537384599684"
+                    Point3="-4,40.2537384599684" />
+                  <mssgle:LineSegment
+                    End="-87.6507939707803,40.2537384599684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-87.6507939707803,40.2537384599684"
+                    Point2="-91.6507939707803,40.2537384599684"
+                    Point3="-91.6507939707803,44.2537384599684" />
+                  <mssgle:LineSegment
+                    End="-91.6507939707803,91.945751510355" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="295.860317731647,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.8253970421564,51.3411763365294"
+              Start="0,0"
+              End="57.8253970421564,43.8411763365294">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6705881682647" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.6705881682647"
+                    Point2="0,25.6705881682647"
+                    Point3="4,25.6705881682647" />
+                  <mssgle:LineSegment
+                    End="53.8253970421564,25.6705881682647" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.8253970421564,25.6705881682647"
+                    Point2="57.8253970421564,25.6705881682647"
+                    Point3="57.8253970421564,29.6705881682647" />
+                  <mssgle:LineSegment
+                    End="57.8253970421564,43.8411763365294" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="353.685714773803,194.541176336529">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43.7682541363564,34.4588235153356"
+              Start="0,0"
+              End="-43.7682541363564,26.9588235153356">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.2294117576678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.2294117576678"
+                    Point2="0,17.2294117576678"
+                    Point3="-4,17.2294117576678" />
+                  <mssgle:LineSegment
+                    End="-39.7682541363564,17.2294117576678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39.7682541363564,17.2294117576678"
+                    Point2="-43.7682541363564,17.2294117576678"
+                    Point3="-43.7682541363564,21.2294117576678" />
+                  <mssgle:LineSegment
+                    End="-43.7682541363564,26.9588235153356" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="341.784127304114,270.599999851865">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="151.117460758074,104.713725361946"
+              Start="0,0"
+              End="151.117460758074,97.213725361946">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.386113532963" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.386113532963"
+                    Point2="0,42.386113532963"
+                    Point3="4,42.386113532963" />
+                  <mssgle:LineSegment
+                    End="147.117460758074,42.386113532963" />
+                  <mssgle:CubicBezierSegment
+                    Point1="147.117460758074,42.386113532963"
+                    Point2="151.117460758074,42.386113532963"
+                    Point3="151.117460758074,46.386113532963" />
+                  <mssgle:LineSegment
+                    End="151.117460758074,97.213725361946" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="60.3173827227872,47.386113532963,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Load Dim_Terminal">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension"
+          TopLeft="755.417460552297,300.103921577564" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\DFT - Load Dim_Terminal\RowsRead"
+          TopLeft="685.5,107.1" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\DFT - Load Dim_Terminal\Error_Log"
+          TopLeft="384.588889184547,303.14183016069" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\DFT - Load Dim_Terminal\OLE DB Source"
+          TopLeft="674.3,5.49999999999984" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\DFT - Load Dim_Terminal\Data Conversion"
+          TopLeft="671.5,208.7" />
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Terminal.Paths[OLE DB Source Output]"
+          TopLeft="749.1,47.0999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Terminal.Paths[Data Conversion Output]"
+          TopLeft="773.633333333333,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.7841272189638,49.8039215775647"
+              Start="0,0"
+              End="85.7841272189638,42.3039215775647">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.2264905998681" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.2264905998681"
+                    Point2="0,20.2264905998681"
+                    Point3="4,20.2264905998681" />
+                  <mssgle:LineSegment
+                    End="81.7841272189638,20.2264905998681" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.7841272189638,20.2264905998681"
+                    Point2="85.7841272189638,20.2264905998681"
+                    Point3="85.7841272189638,24.2264905998681" />
+                  <mssgle:LineSegment
+                    End="85.7841272189638,42.3039215775647" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Terminal.Paths[Row Count Output 1]"
+          TopLeft="749.1,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\DFT - Load Dim_Terminal\Insert Destination"
+          TopLeft="507.931745703988,425.494771229913" />
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Terminal.Paths[New Output]"
+          TopLeft="826.084127218964,341.703921577564">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-236.952381514976,83.790849652349"
+              Start="0,0"
+              End="-236.952381514976,76.290849652349">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.9001147448435" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.9001147448435"
+                    Point2="0,33.9001147448435"
+                    Point3="-4,33.9001147448435" />
+                  <mssgle:LineSegment
+                    End="-232.952381514976,33.9001147448435" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-232.952381514976,33.9001147448435"
+                    Point2="-236.952381514976,33.9001147448435"
+                    Point3="-236.952381514976,37.9001147448435" />
+                  <mssgle:LineSegment
+                    End="-236.952381514976,76.290849652349" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-145.567577476238,38.9001147448435,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DFT - Load Dim_Terminal\OLE DB Command"
+          TopLeft="884.7,411.9" />
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Terminal.Paths[Changing Attribute Updates Output]"
+          TopLeft="892.75079388563,341.703921577564">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74.3492061143696,70.1960784224353"
+              Start="0,0"
+              End="74.3492061143696,62.6960784224353">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3999401251074" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.3999401251074"
+                    Point2="0,28.3999401251074"
+                    Point3="4,28.3999401251074" />
+                  <mssgle:LineSegment
+                    End="70.3492061143696,28.3999401251074" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70.3492061143696,28.3999401251074"
+                    Point2="74.3492061143696,28.3999401251074"
+                    Point3="74.3492061143696,32.3999401251074" />
+                  <mssgle:LineSegment
+                    End="74.3492061143696,62.6960784224353" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-41.3593031928152,33.3999401251074,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Terminal.Paths[Data Conversion Error Output]"
+          TopLeft="724.566666666667,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-277.57777748212,52.8418301606905"
+              Start="0,0"
+              End="-277.57777748212,45.3418301606905">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.4602534734233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.4602534734233"
+                    Point2="0,21.4602534734233"
+                    Point3="-4,21.4602534734233" />
+                  <mssgle:LineSegment
+                    End="-273.57777748212,21.4602534734233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-273.57777748212,21.4602534734233"
+                    Point2="-277.57777748212,21.4602534734233"
+                    Point3="-277.57777748212,25.4602534734233" />
+                  <mssgle:LineSegment
+                    End="-277.57777748212,45.3418301606905" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-204.87527545981,26.4602534734233,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Dim_Terminal\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{0D23CEC8-083D-4E77-83C0-5AF17BDE89E5}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[mart].[Dim_Terminal]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_code]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;terminal_code&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;terminal_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;terminal_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[terminal_type]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;terminal_type&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[zone]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;zone&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Dim_Terminal\Error_Log">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Dim_Terminal\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Dim_Terminal\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

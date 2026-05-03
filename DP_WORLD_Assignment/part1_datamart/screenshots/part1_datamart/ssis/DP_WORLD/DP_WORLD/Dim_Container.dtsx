@@ -1,0 +1,811 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/27/2026 9:03:53 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-6ULU22H"
+  DTS:CreatorName="DESKTOP-6ULU22H\Sondos"
+  DTS:DTSID="{EF3EDAB7-B4D6-4868-B085-DAA1CEE3684B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{198C02AD-B453-4C09-AC0E-EF8375DDEFFB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BA4A2AA7-89E4-4ED0-9660-EB2B88758752}"
+      DTS:ObjectName="LocalHost.DPWorld_DataMart">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DPWorld_DataMart;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{BA4A2AA7-89E4-4ED0-9660-EB2B88758752}LocalHost.DPWorld_DataMart;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{50941630-66C7-448F-9CE2-2ADD640D5E54}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsError">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{43D2D4DA-9C54-4C9E-BF7F-4EA257156A88}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsRead">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B5F2AFC8-C131-46ED-A277-2D70AE741154}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsWritten">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load Dim_Container"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{98b2a410-6c22-4a24-a667-5fff181c7d05}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load Dim_Container"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load Dim_Container\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[mart].[Dim_Container]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Container\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[container_no]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="container_no"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[container_no]"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].Columns[container_no]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[container_size]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="container_size"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[container_size]"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].Columns[container_size]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_reefer]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="is_reefer"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_reefer]"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_reefer]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Container_SK]"
+                      dataType="i4"
+                      name="Container_SK" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[container_no]"
+                      dataType="wstr"
+                      length="50"
+                      name="container_no" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[container_size]"
+                      dataType="wstr"
+                      length="50"
+                      name="container_size" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_reefer]"
+                      dataType="bool"
+                      name="is_reefer" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Container\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Container\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[ContainerMovements]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+    CAST(container_no AS NVARCHAR(50)) AS container_no,
+    ISNULL(TRY_CAST(container_size AS NVARCHAR(50)), 0) AS container_size,
+    ISNULL(TRY_CAST(is_reefer AS INT), 0) AS is_reefer
+FROM stg.ContainerMovements 
+WHERE container_no IS NOT NULL;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Dim_Container\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DPWorld_DataMart]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].Columns[container_no]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[container_no]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].Columns[container_no]"
+                      name="container_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].Columns[container_size]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[container_size]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].Columns[container_size]"
+                      name="container_size"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_reefer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[is_reefer]"
+                      length="255"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].Columns[is_reefer]"
+                      name="is_reefer"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[container_no]"
+                      dataType="wstr"
+                      length="50"
+                      name="container_no" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[container_size]"
+                      dataType="wstr"
+                      length="50"
+                      name="container_size" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[is_reefer]"
+                      dataType="i4"
+                      name="is_reefer" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[container_no]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[container_no]"
+                      name="container_no" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[container_size]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[container_size]"
+                      name="container_size" />
+                    <outputColumn
+                      refId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[is_reefer]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[is_reefer]"
+                      name="is_reefer" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Dim_Container\RowsRead"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="RowsRead">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::RowsRead</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Dim_Container\RowsRead.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Dim_Container\RowsRead.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT - Load Dim_Container\RowsRead.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load Dim_Container.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Load Dim_Container\RowsRead.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Load Dim_Container\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT - Load Dim_Container.Paths[Row Count Output 1]"
+              endId="Package\DFT - Load Dim_Container\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT - Load Dim_Container\RowsRead.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\End Log Failure"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{69a661cc-9f0c-47d7-9271-363dcf87afed}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="End Log Failure"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BA4A2AA7-89E4-4ED0-9660-EB2B88758752}"
+          SQLTask:SqlStatementSource="UPDATE mart.BatchLog&#xA;SET EndTime = GETDATE(),&#xA;    Status = 'Failure'&#xA;WHERE LogID = (&#xA;    SELECT MAX(LogID) &#xA;    FROM mart.BatchLog &#xA;    WHERE PackageName = 'Dim_Container.dtsx' &#xA;    AND Status = 'Running'&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="NewParameterName"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task (End Log Success)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{e72c0992-2194-4de4-bac7-b43e670a675e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task (End Log Success)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BA4A2AA7-89E4-4ED0-9660-EB2B88758752}"
+          SQLTask:SqlStatementSource="UPDATE mart.BatchLog&#xA;SET EndTime = GETDATE(),&#xA;    Status = 'Success',&#xA;    RowsRead = ?,    &#xA;    RowsWritten = ?, &#xA;    RowsError = ?    &#xA;WHERE LogID = (SELECT MAX(LogID) FROM mart.BatchLog WHERE PackageName = 'Dim_Container.dtsx');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::RowsRead"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::RowsWritten"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::RowsError"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task (Start Log)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9bad86e4-8a18-468f-9a43-cf80b3fa24cd}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task (Start Log)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BA4A2AA7-89E4-4ED0-9660-EB2B88758752}"
+          SQLTask:SqlStatementSource="INSERT INTO mart.BatchLog (PackageName, TableName, StartTime, Status) &#xA;VALUES ('Dim_Container.dtsx', 'mart.Dim_Container', GETDATE(), 'Running');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task (Truncate &amp; Unknown)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{60a408d1-9caf-4cb9-a10e-ca4a9b3d25b5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task (Truncate &amp; Unknown)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BA4A2AA7-89E4-4ED0-9660-EB2B88758752}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE mart.Dim_Container;&#xA;&#xA;SET IDENTITY_INSERT mart.Dim_Container ON;&#xA;&#xA;INSERT INTO mart.Dim_Container (&#xA;    Container_SK, &#xA;    container_no, &#xA;    container_size, &#xA;    is_reefer&#xA;) &#xA;VALUES (&#xA;    -1, &#xA;    'Unknown', &#xA;    0, &#xA;    0&#xA;);&#xA;&#xA;SET IDENTITY_INSERT mart.Dim_Container OFF;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{e836a123-e5ba-46e7-9e82-d13c00063135}"
+      DTS:From="Package\DFT - Load Dim_Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute SQL Task (End Log Success)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{334acd1f-9d03-4831-b51c-18597fc87bc7}"
+      DTS:From="Package\Execute SQL Task (Start Log)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Execute SQL Task (Truncate &amp; Unknown)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{01853de0-507e-4639-8a2a-4d4f05289d81}"
+      DTS:From="Package\Execute SQL Task (Truncate &amp; Unknown)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load Dim_Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{db727af9-0575-4a14-ad2c-c89f9aa46e27}"
+      DTS:From="Package\DFT - Load Dim_Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\End Log Failure"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\DFT - Load Dim_Container"
+          TopLeft="210.317460637446,228.999999851865" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\End Log Failure"
+          TopLeft="417.301588062188,375.313725213811" />
+        <NodeLayout
+          Size="252.8,41.6"
+          Id="Package\Execute SQL Task (End Log Success)"
+          TopLeft="60,370.04575136222" />
+        <NodeLayout
+          Size="216.8,41.6"
+          Id="Package\Execute SQL Task (Start Log)"
+          TopLeft="187.460317731647,60" />
+        <NodeLayout
+          Size="273.6,41.6"
+          Id="Package\Execute SQL Task (Truncate &amp; Unknown)"
+          TopLeft="154.60317480456,147.176470511821" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="279.384127304113,270.599999851865">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-92.9841273041127,99.445751510355"
+              Start="0,0"
+              End="-92.9841273041127,91.945751510355">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.2444525643468" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.2444525643468"
+                    Point2="0,40.2444525643468"
+                    Point3="-4,40.2444525643468" />
+                  <mssgle:LineSegment
+                    End="-88.9841273041127,40.2444525643468" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-88.9841273041127,40.2444525643468"
+                    Point2="-92.9841273041127,40.2444525643468"
+                    Point3="-92.9841273041127,44.2444525643468" />
+                  <mssgle:LineSegment
+                    End="-92.9841273041127,91.945751510355" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="293.631746268103,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.5764705118218"
+              Start="0,0"
+              End="0,38.0764705118218">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.0764705118218" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="291.40317480456,188.776470511821">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.5142858328857,40.2235293400435"
+              Start="0,0"
+              End="20.5142858328857,32.7235293400435">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1117646700218" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.1117646700218"
+                    Point2="0,20.1117646700218"
+                    Point3="4,20.1117646700218" />
+                  <mssgle:LineSegment
+                    End="16.5142858328857,20.1117646700218" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5142858328857,20.1117646700218"
+                    Point2="20.5142858328857,20.1117646700218"
+                    Point3="20.5142858328857,24.1117646700218" />
+                  <mssgle:LineSegment
+                    End="20.5142858328857,32.7235293400435" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="344.450793970779,270.599999851865">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148.450794091409,104.713725361946"
+              Start="0,0"
+              End="148.450794091409,97.213725361946">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.3763357324125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.3763357324125"
+                    Point2="0,42.3763357324125"
+                    Point3="4,42.3763357324125" />
+                  <mssgle:LineSegment
+                    End="144.450794091409,42.3763357324125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144.450794091409,42.3763357324125"
+                    Point2="148.450794091409,42.3763357324125"
+                    Point3="148.450794091409,46.3763357324125" />
+                  <mssgle:LineSegment
+                    End="148.450794091409,97.213725361946" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="58.9840493894543,47.3763357324125,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Load Dim_Container">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\DFT - Load Dim_Container\OLE DB Source"
+          TopLeft="363.857137435249,59.1428562615599" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\DFT - Load Dim_Container\OLE DB Destination"
+          TopLeft="360.714286482152,237.823529203303" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\DFT - Load Dim_Container\RowsRead"
+          TopLeft="385.714279966695,139.714284330607" />
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Container.Paths[Row Count Output 1]"
+          TopLeft="447.614283224423,181.314284330607">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.5092448726962"
+              Start="0,0"
+              End="0,49.0092448726962">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.0092448726962" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Dim_Container.Paths[OLE DB Source Output]"
+          TopLeft="438.657137435249,100.74285626156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.6571425314462,38.9714280690466"
+              Start="0,0"
+              End="10.6571425314462,31.4714280690466">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.4857140345233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.4857140345233"
+                    Point2="0,19.4857140345233"
+                    Point3="4,19.4857140345233" />
+                  <mssgle:LineSegment
+                    End="6.6571425314462,19.4857140345233" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.6571425314462,19.4857140345233"
+                    Point2="10.6571425314462,19.4857140345233"
+                    Point3="10.6571425314462,23.4857140345233" />
+                  <mssgle:LineSegment
+                    End="10.6571425314462,31.4714280690466" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Dim_Container\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Dim_Container\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
