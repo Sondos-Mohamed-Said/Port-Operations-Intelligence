@@ -227,11 +227,14 @@ The SCD Wizard generates one OLE DB Command per changed row — a single paramet
 
 **Q5 — How would you implement automated row-count reconciliation between source, staging, and target?**
 
-At the start of each SSIS package, a Script Task captures the source row count into a User variable (RowsRead). At the end, an Execute SQL Task queries sys.partitions on the target table to retrieve the post-load count in O(1) without a full table scan. A second Script Task compares RowsWritten + RowsError against RowsRead: if the delta exceeds zero, the package sets its result to Failure, which propagates via Precedence Constraints to halt all downstream fact packages. The counts (RowsRead, RowsWritten, RowsError) are written to stg.BatchLog and mart.BatchLog on every run so mismatches are permanently auditable and correctable without re-reading the source.
+At the start of each SSIS package, a Script Task captures the source row count into a User variable (RowsRead). At the end, an Execute SQL Task queries sys.partitions on the target table to retrieve the post-load count in O(1) without a full table scan. 
+A second Script Task compares RowsWritten + RowsError against RowsRead: if the delta exceeds zero, the package sets its result to Failure, which propagates via Precedence Constraints to halt all downstream fact packages. The counts (RowsRead, RowsWritten, RowsError) are written to stg.BatchLog and mart.BatchLog on every run so mismatches are permanently auditable and correctable without re-reading the source.
 
 **Q6 — What is the role of the staging layer?**
 
-The staging layer provides three guarantees. First, it decouples source extraction from transformation — if a mart load fails mid-run, the source Excel file does not need to be re-read; the pipeline restarts from staging, which is already loaded. Second, it provides a clean, stable surface for data quality validation: all profiling and business-rule checks run against staging before any mart table is touched, so defects are caught before they propagate. Third, it enables full pipeline observability — every row that enters staging can be reconciled against every row that exits to the mart, with any gap permanently captured in the ErrorLog. Loading directly into fact tables would remove all of these guarantees and make any extraction failure destructive.
+The staging layer provides three guarantees. First, it decouples source extraction from transformation — if a mart load fails mid-run, the source Excel file does not need to be re-read; the pipeline restarts from staging, which is already loaded. 
+Second, it provides a clean, stable surface for data quality validation: all profiling and business-rule checks run against staging before any mart table is touched, so defects are caught before they propagate. 
+Third, it enables full pipeline observability — every row that enters staging can be reconciled against every row that exits to the mart, with any gap permanently captured in the ErrorLog. Loading directly into fact tables would remove all of these guarantees and make any extraction failure destructive.
 
 ### Power BI
 
